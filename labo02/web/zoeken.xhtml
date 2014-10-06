@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="top">
+        Pand zoeken
+    </ui:define>
+
+    <ui:define name="content">
+        <table>
+            <tr>
+                <td>Type pand:</td>
+                <td><select name="select_type_pand">
+                        <c:forEach items="${immoData.gebouwTypes}" var="entry" >
+                            <option>${entry.naam}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Minimum prijs:</td>
+                <td><input name="input_min_prijs" type="text" value="0.0"/></td>
+            </tr>
+            <tr>
+                <td> Maximum prijs:</td>
+                <td><input name="input_max_prijs" type="text" value="0.0"/></td>
+            </tr>            
+        </table> 
+        
+        
+    </ui:define>
+
+</ui:composition>

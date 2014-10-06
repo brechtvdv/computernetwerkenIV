@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+<managed-bean>
+    <managed-bean-name>now</managed-bean-name>
+    <managed-bean-class>beans.Now</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+    <managed-bean-name>zoek</managed-bean-name>
+    <managed-bean-class>beans.Zoek</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+        <managed-bean-name>immoData</managed-bean-name>
+        <managed-bean-class>be.ugent.tiwi.immo.jdbc.implementatie.ImmoDataStorage</managed-bean-class>
+        <managed-bean-scope>application</managed-bean-scope>
+        <managed-property>
+            <property-name>driver</property-name>
+            <value>com.mysql.jdbc.Driver</value>
+        </managed-property>
+        <managed-property>
+            <property-name>connectieString</property-name>
+            <value>jdbc:mysql://localhost:3306/immo</value>            
+        </managed-property>
+        <managed-property>
+            <property-name>username</property-name>
+            <value>root</value>
+        </managed-property>
+        <managed-property>
+            <property-name>wachtwoord</property-name>
+            <value>root</value>
+        </managed-property>
+    </managed-bean>   
+
+</faces-config>
