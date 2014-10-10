@@ -2,34 +2,34 @@
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./template.xhtml"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="top">
         Pand zoeken
     </ui:define>
 
     <ui:define name="content">
-        <table>
-            <tr>
-                <td>Type pand:</td>
-                <td><select name="select_type_pand">
-                        <c:forEach items="${immoData.gebouwTypes}" var="entry" >
-                            <option>${entry.naam}</option>
-                        </c:forEach>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Minimum prijs:</td>
-                <td><input name="input_min_prijs" type="text" value="0.0"/></td>
-            </tr>
-            <tr>
-                <td> Maximum prijs:</td>
-                <td><input name="input_max_prijs" type="text" value="0.0"/></td>
-            </tr>            
-        </table> 
-        
-        
+        <h:form>
+            <h:outputLabel value="#{zoek.gevonden}"/>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Type:" ></h:outputLabel>
+                <h:selectOneMenu id="type" value="#{zoek.type}">
+                    <f:selectItems value="#{immoData.gebouwTypes}" 
+                                   var="type" itemLabel="#{type.naam}" itemValue="#{type.id}">                               
+                    </f:selectItems>
+                </h:selectOneMenu>
+                <h:message for="type"></h:message>
+                <h:outputLabel value="Min: "></h:outputLabel>
+                <h:inputText id="minimum" value="#{zoek.min}"/>
+                <h:message for="max"></h:message>
+                <h:outputLabel value="Max:"/>
+                 <h:inputText id="maximum" value="#{zoek.max}"/>
+            </h:panelGrid>
+            <h:commandButton value="Zoek" action="#{zoek.zoek}"/>
+            
+        </h:form>
     </ui:define>
 
 </ui:composition>

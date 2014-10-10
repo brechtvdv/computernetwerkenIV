@@ -6,6 +6,11 @@
 package beans;
 
 import be.ugent.tiwi.immo.interfaces.IImmoKantoor;
+import be.ugent.tiwi.immo.interfaces.IPand;
+import be.ugent.tiwi.immo.interfaces.ImmoException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,6 +22,7 @@ public class Zoek {
     private double max;
     private IImmoKantoor immoKantoor;
     private boolean gevonden;
+    List<IPand> panden;
 
     public Zoek() {
         this.type = 0;
@@ -65,6 +71,25 @@ public class Zoek {
         this.gevonden = gevonden;
     }
     
+    public List<IPand> getPanden() {
+        return panden;
+    }
+
+    public void setPanden(List<IPand> panden) {
+        this.panden = panden;
+    }
+
+    
+    public String zoek() {
+        String res = "nietGevonden";
+        try {
+            panden = immoKantoor.getPanden(getType(), getMin(), getMax());
+            if(!panden.isEmpty()) res = "gevonden";
+        } catch (ImmoException ex) {
+            Logger.getLogger(Zoek.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return res;
+    }
     
     
     
