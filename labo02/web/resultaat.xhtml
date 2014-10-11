@@ -13,18 +13,24 @@
         <h:dataTable value="#{zoek.panden}" var="pand">
             <h:column>
                 <f:facet name="header">
-                    <h:outputText> Adres</h:outputText>
+                    <h:outputText value="Adres" ></h:outputText>
                 </f:facet>
                 <h:outputText value="#{pand.straat}"/>&nbsp;
-                <h:outputText value="#{pand.nummer}"/>
+                <h:outputText value="#{pand.nummer}"/>,
                 <h:outputText value="#{pand.gemeente.postcode}"/>&nbsp;
                 <h:outputText value="#{pand.gemeente.naam}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">
-                    <h:outputText> Vraag</h:outputText>
+                    <h:outputText value="Vraag"></h:outputText>
                 </f:facet>
                 <h:outputText value="#{pand.vraagPrijs}" />                
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Status"/>
+                </f:facet>
+                <h:outputText value="#{pand.status}"/>
             </h:column>
         </h:dataTable>
     </ui:define>

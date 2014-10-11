@@ -12,7 +12,7 @@
 
     <ui:define name="content">
         <h:form>
-            <h:outputLabel value="#{zoek.gevonden}"/>
+            <h:outputLabel rendered="#{zoek.gevonden}"/>
             <h:panelGrid columns="3">
                 <h:outputLabel value="Type:" ></h:outputLabel>
                 <h:selectOneMenu id="type" value="#{zoek.type}">
@@ -23,9 +23,10 @@
                 <h:message for="type"></h:message>
                 <h:outputLabel value="Min: "></h:outputLabel>
                 <h:inputText id="minimum" value="#{zoek.min}"/>
-                <h:message for="max"></h:message>
+                <h:message for="min"></h:message>
                 <h:outputLabel value="Max:"/>
-                 <h:inputText id="maximum" value="#{zoek.max}"/>
+                <h:inputText id="maximum" value="#{zoek.max}"/>
+                <h:message for="max"></h:message>
             </h:panelGrid>
             <h:commandButton value="Zoek" action="#{zoek.zoek}"/>
             
