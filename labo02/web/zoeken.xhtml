@@ -14,21 +14,21 @@
         <h:form>
             <h:outputLabel rendered="#{zoek.gevonden}"/>
             <h:panelGrid columns="3">
-                <h:outputLabel value="Type:" ></h:outputLabel>
+                <h:outputLabel value="#{bundle['type']}" ></h:outputLabel>
                 <h:selectOneMenu id="type" value="#{zoek.type}">
                     <f:selectItems value="#{immoData.gebouwTypes}" 
                                    var="type" itemLabel="#{type.naam}" itemValue="#{type.id}">                               
                     </f:selectItems>
                 </h:selectOneMenu>
                 <h:message for="type"></h:message>
-                <h:outputLabel value="Min: "></h:outputLabel>
-                <h:inputText id="minimum" value="#{zoek.min}"/>
+                <h:outputLabel value="#{bundle['min']}"></h:outputLabel>
+                <h:inputText id="min" value="#{zoek.min}"/>
                 <h:message for="min"></h:message>
-                <h:outputLabel value="Max:"/>
-                <h:inputText id="maximum" value="#{zoek.max}">
+                <h:outputLabel value="#{bundle['max']}"/>
+                <h:inputText id="max" value="#{zoek.max}">
                     <f:validator validatorId="validators.GroterDanNul"/>
                 </h:inputText>
-                <h:message for="max"></h:message>
+                <h:message for="max" style="color: red"></h:message>
             </h:panelGrid>
             <h:commandButton value="Zoek" action="#{zoek.zoek}"/>
             
