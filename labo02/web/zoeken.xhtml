@@ -25,7 +25,9 @@
                 <h:inputText id="minimum" value="#{zoek.min}"/>
                 <h:message for="min"></h:message>
                 <h:outputLabel value="Max:"/>
-                <h:inputText id="maximum" value="#{zoek.max}"/>
+                <h:inputText id="maximum" value="#{zoek.max}">
+                    <f:validator validatorId="validators.GroterDanNul"/>
+                </h:inputText>
                 <h:message for="max"></h:message>
             </h:panelGrid>
             <h:commandButton value="Zoek" action="#{zoek.zoek}"/>
