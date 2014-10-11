@@ -9,6 +9,7 @@
         <supported-locale>en</supported-locale>
     </locale-config>
 
+    <message-bundle>resources.foutboodschappen</message-bundle>
     <resource-bundle>
         <base-name>resources.messages</base-name>
         <var>bundle</var>
